@@ -16,8 +16,7 @@ struct CMFHeader
 
 void GenerateKey(uint8_t* buffer, const CMFHeader* header, const int32_t length)
 {
-  uint32_t kidx = length * header->m_buildVersion;
-  uint32_t decrement = header->m_buildVersion & 511;
+  uint32_t kidx = length * header->m_buildVersion
   for (int32_t i = 0; i != length; ++i)
   {
     buffer[i] = m_keytable[kidx % 512];
